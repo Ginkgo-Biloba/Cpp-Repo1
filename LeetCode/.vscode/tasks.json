@@ -1,0 +1,81 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "mingw64",
+			"type": "process",
+			"command": "${env:mingw}\\bin\\g++.exe",
+			"args": [
+				"-D_WIN32_WINNT=_WIN32_WINNT_VISTA",
+				"-fexec-charset=gbk",
+				// "-finput-charset=utf-8",
+				"-std=c++14",
+				"-Wall",
+				"-Wextra",
+				"-pedantic",
+				"-Wcast-align",
+				"-Wconversion",
+				"-Wpointer-arith",
+				"-Wshadow",
+				"-Werror",
+				"-Wno-char-subscripts",
+				"-shared-libstdc++",
+				"-shared-libgcc",
+				"-O0",
+				"-ggdb",
+				"-o",
+				"${fileBasenameNoExtension}",
+				"${fileBasename}",
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"problemMatcher": "$gcc"
+		},
+		{
+			"label": "linux64",
+			"type": "process",
+			"command": "g++",
+			"args": [
+				"-std=c++14",
+				"-Wall",
+				"-Wextra",
+				"-pedantic",
+				"-Wcast-align",
+				"-Wconversion",
+				"-Wpointer-arith",
+				"-Wshadow",
+				"-Werror",
+				"-Wno-char-subscripts",
+				"-fsanitize=undefined",
+				"-fsanitize=address",
+				"-fno-omit-frame-pointer",
+				"-O0",
+				"-ggdb",
+				"-o",
+				"${fileBasenameNoExtension}",
+				"${fileBasename}",
+			],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"problemMatcher": "$gcc"
+		}
+	]
+}

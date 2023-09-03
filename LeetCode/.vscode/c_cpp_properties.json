@@ -1,0 +1,22 @@
+{
+	"configurations": [
+		{
+			"name": "mingw64",
+			"defines": [
+				"_WIN32_WINNT=_WIN32_WINNT_VISTA"
+			],
+			"compilerPath": "${env:mingw}/bin/g++.exe",
+			"cStandard": "c11",
+			"cppStandard": "c++14",
+			"intelliSenseMode": "windows-gcc-x64"
+		},
+		{
+			"name": "linux64",
+			"compilerPath": "/usr/bin/g++",
+			"cStandard": "c11",
+			"cppStandard": "c++14",
+			"intelliSenseMode": "linux-gcc-x64"
+		}
+	],
+	"version": 4
+}
