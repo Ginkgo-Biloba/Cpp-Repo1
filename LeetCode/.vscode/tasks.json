@@ -6,28 +6,28 @@
 		{
 			"label": "mingw64",
 			"type": "process",
-			"command": "${env:mingw}\\bin\\g++.exe",
+			"command": "${env:mingw}\\bin\\x86_64-w64-mingw32-g++.exe",
 			"args": [
 				"-D_WIN32_WINNT=_WIN32_WINNT_VISTA",
-				"-fexec-charset=gbk",
-				// "-finput-charset=utf-8",
-				"-std=c++14",
+				"-std=gnu++14",
+				"-masm=intel",
+				"-march=native",
+				"-O0",
+				"-ggdb",
 				"-Wall",
 				"-Wextra",
 				"-pedantic",
+				"-Werror",
 				"-Wcast-align",
 				"-Wconversion",
 				"-Wpointer-arith",
 				"-Wshadow",
-				"-Werror",
-				"-Wno-char-subscripts",
+				"-Wreturn-type",
 				"-shared-libstdc++",
 				"-shared-libgcc",
-				"-O0",
-				"-ggdb",
 				"-o",
 				"${fileBasenameNoExtension}",
-				"${fileBasename}",
+				"${fileBasename}"
 			],
 			"group": {
 				"kind": "build",
@@ -35,7 +35,7 @@
 			},
 			"presentation": {
 				"echo": true,
-				"reveal": "always",
+				"reveal": "silent",
 				"focus": false,
 				"panel": "shared",
 				"showReuseMessage": true,
@@ -44,38 +44,91 @@
 			"problemMatcher": "$gcc"
 		},
 		{
-			"label": "linux64",
+			"label": "linux.x64",
 			"type": "process",
-			"command": "g++",
+			"command": "/usr/bin/x86_64-linux-gnu-g++",
 			"args": [
-				"-std=c++14",
+				"-std=gnu++14",
+				"-masm=intel",
+				"-march=native",
+				"-ggdb",
+				"-O0",
 				"-Wall",
 				"-Wextra",
 				"-pedantic",
+				"-Werror",
 				"-Wcast-align",
 				"-Wconversion",
 				"-Wpointer-arith",
 				"-Wshadow",
-				"-Werror",
-				"-Wno-char-subscripts",
+				"-Wreturn-type",
 				"-fsanitize=undefined",
 				"-fsanitize=address",
-				"-fno-omit-frame-pointer",
-				"-O0",
-				"-ggdb",
 				"-o",
 				"${fileBasenameNoExtension}",
-				"${fileBasename}",
+				"${fileBasename}"
 			],
+			"group": "build",
 			"presentation": {
 				"echo": true,
-				"reveal": "always",
+				"reveal": "silent",
 				"focus": false,
 				"panel": "shared",
 				"showReuseMessage": true,
 				"clear": false
 			},
 			"problemMatcher": "$gcc"
+		},
+		{
+			"label": "linux.aarch64",
+			"type": "process",
+			"command": "/usr/bin/aarch64-linux-gnu-g++",
+			"args": [
+				"-std=gnu++14",
+				"-masm=intel",
+				"-march=native",
+				"-O0",
+				"-Wall",
+				"-Wextra",
+				"-pedantic",
+				"-Werror",
+				"-Wcast-align",
+				"-Wconversion",
+				"-Wpointer-arith",
+				"-Wshadow",
+				"-Wreturn-type",
+				"-fsanitize=undefined",
+				"-fsanitize=address",
+				"-o",
+				"${fileBasenameNoExtension}",
+				"${fileBasename}"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "silent",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"problemMatcher": "$gcc"
+		},
+		{
+			"label": "dotnet",
+			"command": "dotnet",
+			"type": "shell",
+			"args": [
+				"build",
+				"leetcode.csproj",
+				"/property:GenerateFullPaths=true",
+				"/consoleloggerparameters:NoSummary"
+			],
+			"group": "build",
+			"presentation": {
+				"reveal": "silent"
+			},
+			"problemMatcher": "$msCompile"
 		}
 	]
 }

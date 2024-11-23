@@ -31,21 +31,18 @@ int characterReplacement(string const& s, int k)
 	int count[128];
 	memset(count, 0, sizeof(count));
 	int left = 0, maxlen = 0, maxcount = 0;
-	for (int right = 0; right < len; ++right)
-	{
+	for (int right = 0; right < len; ++right) {
 		int c = s[right];
 		++count[c];
 		maxcount = std::max(maxcount, count[c]);
-		while (right - left + 1 - maxcount > k)
-		{
-			--count[s[left]];
+		while (right - left + 1 - maxcount > k) {
+			--count[(int)s[left]];
 			++left;
 		}
 		maxlen = std::max(maxlen, right - left + 1);
 	}
 	return maxlen;
 }
-
 
 int main()
 {

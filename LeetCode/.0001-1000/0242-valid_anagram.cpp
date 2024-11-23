@@ -22,22 +22,19 @@
 bool isAnagram(string s, string t)
 {
 	size_t len = s.length();
-	int num[128] = { 0 };
+	int num[128] = {0};
 	if (len != t.length())
 		return false;
-	for (size_t i = 0; i < len; ++i)
-	{
-		num[s[i]] += 1;
-		num[t[i]] -= 1;
+	for (size_t i = 0; i < len; ++i) {
+		num[(int)s[i]] += 1;
+		num[(int)t[i]] -= 1;
 	}
-	for (int i = 0; i < 128; ++i)
-	{
+	for (int i = 0; i < 128; ++i) {
 		if (num[i] != 0)
 			return false;
 	}
 	return true;
 }
-
 
 int main()
 {

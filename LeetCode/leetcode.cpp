@@ -9,22 +9,19 @@ int adds(int a, int b)
 }
 
 // Definition for a binary tree node.
-struct TreeNode
-{
+struct TreeNode {
 	int val;
 	TreeNode* left;
 	TreeNode* right;
 };
 
 // Definition for singly-linked list.
-struct ListNode
-{
+struct ListNode {
 	int val;
 	ListNode* next;
 };
 
-class SegTree
-{
+class SegTree {
 	vector<int> sum;
 	int len;
 
@@ -62,8 +59,7 @@ public:
 
 template <typename Tp,
 	size_t fixed_size = (4096 + sizeof(Tp) - 1) / sizeof(Tp)>
-class AutoBuffer
-{
+class AutoBuffer {
 	Tp buf[fixed_size];
 
 public:

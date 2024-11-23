@@ -50,26 +50,23 @@ https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/26/move2.jpg
 	0 <= fromi, toi < n
 */
 
-class Solution
-{
+class Solution {
 	vector<array<int, 2>> R;
 	vector<int> people;
 	int stay, ans, nbuild, nreq;
 
 	void transfer(int mask)
 	{
-		int bit = __builtin_popcount(mask);
+		int bit = popcount(mask);
 		if (bit < ans)
 			return;
 		people.assign(nbuild, 0);
 		for (int i = 0; i < nreq; ++i)
-			if (mask & (1 << i))
-			{
+			if (mask & (1 << i)) {
 				people[R[i][0]] -= 1;
 				people[R[i][1]] += 1;
 			}
-		for (int i = 0; i < nbuild; ++i)
-		{
+		for (int i = 0; i < nbuild; ++i) {
 			if (people[i])
 				return;
 		}
@@ -81,8 +78,7 @@ public:
 	{
 		R.clear();
 		stay = ans = 0;
-		for (auto& r : requests)
-		{
+		for (auto& r : requests) {
 			if (r[0] == r[1])
 				++stay;
 			else

@@ -18,17 +18,16 @@
 输出：false
 
 提示：
-	1 <= sentence.length <= 1000
-	sentence 由小写英语字母组成
+  1 <= sentence.length <= 1000
+  sentence 由小写英语字母组成
 */
 
 bool checkIfPangram(string sentence)
 {
-	char have[128] = { 0 };
-	for (char c : sentence)
+	char have[128] = {0};
+	for (int c : sentence)
 		have[c] = 1;
-	for (int i = 'a'; i <= 'z'; ++i)
-	{
+	for (int i = 'a'; i <= 'z'; ++i) {
 		if (!(have[i]))
 			return false;
 	}
@@ -36,4 +35,5 @@ bool checkIfPangram(string sentence)
 }
 
 int main()
-{}
+{
+}

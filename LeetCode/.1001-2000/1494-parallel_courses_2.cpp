@@ -40,21 +40,6 @@ https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/06/27/leetcode_para
 	题目输入的图是个有向无环图。
 */
 
-unsigned popcnt(unsigned n)
-{
-#if defined _MSC_VER
-	return __popcnt(n);
-#elif defined __GNUC__
-	return __builtin_popcount(n);
-#else
-	n = n - ((n >> 1) & 0x55555555);
-	n = (n & 0x33333333) + ((n >> 2) & 0x33333333);
-	n = (n + (n >> 4)) & 0x0f0f0f0f;
-	n = (n * 0x1010101) >> 24;
-	return n;
-#endif
-}
-
 // https://leetcode.com/problems/parallel-courses-ii/discuss/709382/C%2B%2B-O(3n)-bitmask-dynamic-programming-code-with-comments-and-tutorial
 // 抄的
 int minNumberOfSemesters(int n, vector<vector<int>>& depend, int k)
@@ -67,8 +52,7 @@ int minNumberOfSemesters(int n, vector<vector<int>>& depend, int k)
 	// 状态 i 的前提条件
 	vector<int> pre(Z);
 	for (int i = 0; i < Z; ++i)
-		for (int m = 0; m < n; ++m)
-		{
+		for (int m = 0; m < n; ++m) {
 			if (i & (1 << m))
 				pre[i] |= dep[m];
 		}
@@ -76,11 +60,9 @@ int minNumberOfSemesters(int n, vector<vector<int>>& depend, int k)
 	// 状态 i 的结果，是 1 的那些位还没有上课
 	vector<int> dp(Z, n + 1);
 	dp[0] = 0;
-	for (int i = 0; i < Z; ++i)
-	{
-		for (int m = i; m > 0; m = (m - 1) & i)
-		{
-			if (static_cast<int>(popcnt(m)) > k)
+	for (int i = 0; i < Z; ++i) {
+		for (int m = i; m > 0; m = (m - 1) & i) {
+			if (popcount(m) > k)
 				continue;
 			int taken = i ^ (Z - 1);
 			if ((taken & pre[m]) == pre[m])
@@ -93,8 +75,8 @@ int minNumberOfSemesters(int n, vector<vector<int>>& depend, int k)
 int main()
 {
 	vector<vector<int>>
-		a = { { 2, 1 }, { 3, 1 }, { 1, 4 } },
-		b = { { 2, 1 }, { 3, 1 }, { 4, 1 }, { 1, 5 } },
+		a = {{2, 1}, {3, 1}, {1, 4}},
+		b = {{2, 1}, {3, 1}, {4, 1}, {1, 5}},
 		c;
 	ToOut(minNumberOfSemesters(4, a, 2));
 	ToOut(minNumberOfSemesters(5, b, 2));

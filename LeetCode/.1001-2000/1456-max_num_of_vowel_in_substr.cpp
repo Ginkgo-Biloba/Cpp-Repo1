@@ -33,28 +33,27 @@
 输出：1
 
 提示：
-	1 <= s.length <= 10^5
-	s 由小写英文字母组成
-	1 <= k <= s.length
+  1 <= s.length <= 10^5
+  s 由小写英文字母组成
+  1 <= k <= s.length
 */
 
 int maxVowels(string s, int k)
 {
-	char M[128] = { 0 };
+	char M[128] = {0};
 	M['a'] = M['e'] = M['o'] = M['i'] = M['u'] = 1;
 	int len = static_cast<int>(s.size());
 	int ans = 0, cur = 0, i = 0;
 	for (; i < k - 1; ++i)
-		cur += M[s[i]];
-	for (; i < len; ++i)
-	{
-		cur += M[s[i]];
+		cur += M[(int)s[i]];
+	for (; i < len; ++i) {
+		cur += M[(int)s[i]];
 		ans = max(ans, cur);
-		cur -= M[s[i - k + 1]];
+		cur -= M[(int)s[i - k + 1]];
 	}
 	return ans;
 }
 
-
 int main()
-{}
+{
+}

@@ -11,6 +11,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <cstring>
+#include <ctime>
 #include <iostream>
 #include <list>
 #include <map>
@@ -38,37 +39,28 @@ using std::unordered_set;
 using std::vector;
 
 template <typename T>
-T const& toString(T const& x) { return x; }
-
-template <typename T>
-string toString(vector<T> const& A)
+std::ostream& operator<<(std::ostream& os, vector<T> const& A)
 {
-	static std::ostringstream oss;
 	size_t len = A.size();
-	oss.str("");
-	oss << std::boolalpha << "[";
+	os << "[";
 	// oss << "(" << len << ")[";
-	for (size_t i = 0; i != len; ++i)
-	{
-		oss << toString(A[i]);
+	for (size_t i = 0; i != len; ++i) {
+		os << A[i];
 		if (i + 1 != len)
-			oss << ",";
+			os << ",";
 	}
-	oss << "]";
-	return oss.str();
+	os << "]";
+	return os;
 }
 
 #define ToOut(x) \
-	std::cout << std::boolalpha << #x " = " << toString(x) << std::endl;
+	std::cout << std::boolalpha << #x " = " << x << std::endl
 
-#if defined _MSC_VER
-inline unsigned __builtin_popcount(unsigned n)
+int popcount(unsigned n)
 {
-	return __popcnt(n);
-	// n = n - ((n >> 1) & 0x55555555);
-	// n = (n & 0x33333333) + ((n >> 2) & 0x33333333);
-	// n = (n + (n >> 4)) & 0x0f0f0f0f;
-	// n = (n * 0x1010101) >> 24;
-	// return n;
+	n = n - ((n >> 1) & 0x55555555u);
+	n = (n & 0x33333333u) + ((n >> 2) & 0x33333333u);
+	n = (n + (n >> 4)) & 0x0f0f0f0fu;
+	n = (n * 0x1010101u) >> 24;
+	return static_cast<int>(n);
 }
-#endif

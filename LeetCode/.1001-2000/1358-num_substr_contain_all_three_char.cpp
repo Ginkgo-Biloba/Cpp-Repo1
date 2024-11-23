@@ -21,8 +21,8 @@
 输出：1
 
 提示：
-	3 <= s.length <= 5 x 10^4
-	s 只包含字符 a，b 和 c 。
+  3 <= s.length <= 5 x 10^4
+  s 只包含字符 a，b 和 c 。
 */
 
 // https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/discuss/516977/JavaC%2B%2BPython-Easy-and-Concise
@@ -30,21 +30,18 @@
 int numberOfSubstrings(string s)
 {
 	int len = static_cast<int>(s.size());
-	int n['d'] = { 0 };
+	int n['d'] = {0};
 	int h = 0, i = 0, ans = 0;
-	for (; i < len; ++i)
-	{
-		n[s[i]] += 1;
-		while (n['a'] > 0 && n['b'] > 0 && n['c'] > 0)
-		{
-			n[s[h]] -= 1;
+	for (; i < len; ++i) {
+		n[(int)s[i]] += 1;
+		while (n['a'] > 0 && n['b'] > 0 && n['c'] > 0) {
+			n[(int)s[h]] -= 1;
 			++h;
 		}
 		ans += h;
 	}
 	return ans;
 }
-
 
 int main()
 {

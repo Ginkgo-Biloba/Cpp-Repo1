@@ -19,15 +19,14 @@ int countPrimes(int n)
 	int ans = 0, i = 0;
 	vector<unsigned> f(n / 32 + 1);
 	f[0] |= 0x3;
-	for (i = 2; i <= istop; ++i)
-	{
+	for (i = 2; i <= istop; ++i) {
 		if (f[i >> 5] & (1U << (i & 31)))
 			continue;
 		for (int k = i * i; k < n; k += i)
 			f[k >> 5] |= (1U << (k & 31));
 	}
 	for (i = 0; i <= n - 32; i += 32)
-		ans += 32 - __builtin_popcount(f[i >> 5]);
+		ans += 32 - popcount(f[i >> 5]);
 	for (; i < n; ++i)
 		ans += !(f[i >> 5] & (1U << (i & 31)));
 	return ans;

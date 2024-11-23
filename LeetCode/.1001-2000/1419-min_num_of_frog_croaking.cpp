@@ -33,21 +33,17 @@
 输出：-1
 
 提示：
-	1 <= croakOfFrogs.length <= 10^5
-	字符串中的字符只有 'c', 'r', 'o', 'a' 或者 'k'
+  1 <= croakOfFrogs.length <= 10^5
+  字符串中的字符只有 'c', 'r', 'o', 'a' 或者 'k'
 */
 
 int minNumberOfFrogs_Org(string S)
 {
 	string croak("croak");
-	int count[128] = { 0 };
+	int count[128] = {0};
 	int len = static_cast<int>(S.size());
-	vector<int> pos;
-	for (int i = 0; i < len; ++i)
-	{
-		count[S[i]] += 1;
-		if (S[i] == 'c')
-			pos.push_back(i);
+	for (int i = 0; i < len; ++i) {
+		count[(int)S[i]] += 1;
 	}
 	if ((count['c'] != count['r'])
 		|| (count['c'] != count['o'])
@@ -57,17 +53,14 @@ int minNumberOfFrogs_Org(string S)
 
 	int need = 0;
 	memset(count, 0, sizeof(count));
-	for (int i = 0; i < len; ++i)
-	{
-		if (S[i] == 'k')
-		{
+	for (int i = 0; i < len; ++i) {
+		if (S[i] == 'k') {
 			count['c'] -= 1;
 			count['r'] -= 1;
 			count['o'] -= 1;
 			count['a'] -= 1;
-		}
-		else
-			count[S[i]] += 1;
+		} else
+			count[(int)S[i]] += 1;
 		if (count['c'] >= count['r']
 			&& count['r'] >= count['o']
 			&& count['o'] >= count['a'])
@@ -76,8 +69,7 @@ int minNumberOfFrogs_Org(string S)
 			return -1;
 		need = max(need, count['c']);
 	}
-	for (char c : croak)
-	{
+	for (int c : croak) {
 		if (count[c] != 0)
 			return -1;
 	}
@@ -86,8 +78,8 @@ int minNumberOfFrogs_Org(string S)
 
 int minNumberOfFrogs(string S)
 {
-	int num[128] = { 0 };
-	char pre[128] = { 0 };
+	int num[128] = {0};
+	char pre[128] = {0};
 	pre['c'] = 1;
 	pre['r'] = 'c';
 	pre['o'] = 'r';
@@ -97,10 +89,9 @@ int minNumberOfFrogs(string S)
 
 	int ans = 0, cur = 0;
 	int len = static_cast<int>(S.size());
-	for (int i = 0; i < len; ++i)
-	{
-		char b = S[i];
-		char a = pre[b];
+	for (int i = 0; i < len; ++i) {
+		int b = S[i];
+		int a = pre[b];
 		num[b] += 1;
 		num[a] -= 1;
 		cur += (b == 'c');
@@ -112,7 +103,6 @@ int minNumberOfFrogs(string S)
 	num[2] = (num['c'] | num['r'] | num['o'] | num['a']);
 	return num[2] ? -1 : ans;
 }
-
 
 int main()
 {

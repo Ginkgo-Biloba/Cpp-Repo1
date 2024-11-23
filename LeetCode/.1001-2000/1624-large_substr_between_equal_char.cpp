@@ -28,8 +28,8 @@
 解释：最优的子字符串是 "abba" ，其他的非最优解包括 "bb" 和 "" 。
 
 提示：
-	1 <= s.length <= 300
-	s 只含小写英文字母
+  1 <= s.length <= 300
+  s 只含小写英文字母
 */
 
 int maxLengthBetweenEqualCharacters(string s)
@@ -38,15 +38,14 @@ int maxLengthBetweenEqualCharacters(string s)
 	int pos[128], ans = -1;
 	for (int i = 'a'; i <= 'z'; ++i)
 		pos[i] = len + 1;
-	for (int i = 0; i < len; ++i)
-	{
-		char c = s[i];
+	for (int i = 0; i < len; ++i) {
+		int c = s[i];
 		ans = max(ans, i - pos[c] - 1);
 		pos[c] = min(pos[c], i);
 	}
 	return ans;
 }
 
-
 int main()
-{}
+{
+}

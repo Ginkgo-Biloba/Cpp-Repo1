@@ -24,10 +24,9 @@ vector<string> findRepeatedDnaSequences(string s)
 	c2i['C'] = 0b10;
 	c2i['G'] = 0b11;
 	for (int i = 0; i < 9; ++i)
-		cur = (cur << 2) | c2i[s[i]];
-	for (int i = 9; i < len; ++i)
-	{
-		cur = ((cur << 2) | c2i[s[i]]) & mask;
+		cur = (cur << 2) | c2i[(int)s[i]];
+	for (int i = 9; i < len; ++i) {
+		cur = ((cur << 2) | c2i[(int)s[i]]) & mask;
 		exist[cur] += 1;
 		if (exist[cur] == 2)
 			R.push_back(s.substr(i - 9, 10));

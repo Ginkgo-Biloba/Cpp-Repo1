@@ -14,9 +14,9 @@ NamespaceIndentation : None
 TabWidth : 2
 UseTab : AlignWithSpaces
 
-BreakBeforeBraces : Allman
 BreakBeforeBinaryOperators : All
 BreakBeforeTernaryOperators : true
+PointerAlignment : Left
 AlignTrailingComments : true
 AllowAllArgumentsOnNextLine : true
 AllowAllConstructorInitializersOnNextLine : true
@@ -31,8 +31,9 @@ AllowShortLambdasOnASingleLine : true
 ConstructorInitializerAllOnOneLineOrOnePerLine : true
 Cpp11BracedListStyle : true
 
-# ColumnLimit : 0
+ColumnLimit : 0
 MaxEmptyLinesToKeep : 1
 KeepEmptyLinesAtTheStartOfBlocks : false
 SortIncludes : false
+# ReflowComments : false
 ...

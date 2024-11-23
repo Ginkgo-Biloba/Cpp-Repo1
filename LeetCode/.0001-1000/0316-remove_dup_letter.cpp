@@ -20,27 +20,24 @@
 // 抄的
 string removeDuplicateLetters(string s)
 {
-	int count[128] = { 0 };
-	char have[128] = { 0 };
+	int count[128] = {0};
+	char have[128] = {0};
 	string t("0");
-	for (char c : s)
+	for (int c : s)
 		count[c] += 1;
-	for (char c : s)
-	{
+	for (int c : s) {
 		count[c] -= 1;
 		if (have[c])
 			continue;
-		while ((c < t.back()) && (count[t.back()] > 0))
-		{
-			have[t.back()] = 0;
+		while ((c < t.back()) && (count[(int)t.back()] > 0)) {
+			have[(int)t.back()] = 0;
 			t.pop_back();
 		}
-		t.push_back(c);
+		t.push_back((char)c);
 		have[c] = 1;
 	}
 	return t.substr(1);
 }
-
 
 int main()
 {

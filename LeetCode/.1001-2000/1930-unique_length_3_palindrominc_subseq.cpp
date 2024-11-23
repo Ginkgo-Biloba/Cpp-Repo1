@@ -9,7 +9,7 @@
 回文 是正着读和反着读一样的字符串。
 
 子序列 是由原字符串删除其中部分字符（也可以不删除）且不改变剩余字符之间相对顺序形成的一个新字符串。
-	例如，"ace" 是 "abcde" 的一个子序列。
+  例如，"ace" 是 "abcde" 的一个子序列。
 
 示例 1：
 输入：s = "aabca"
@@ -34,8 +34,8 @@
 - "aba" ("bbcbaba" 的子序列)
 
 提示：
-	3 <= s.length <= 10^5
-	s 仅由小写英文字母组成
+  3 <= s.length <= 10^5
+  s 仅由小写英文字母组成
 */
 
 int countPalindromicSubsequence(string s)
@@ -43,14 +43,13 @@ int countPalindromicSubsequence(string s)
 	char have[128];
 	int ans = 0;
 	int len = static_cast<int>(s.size());
-	for (int c = 'a'; c <= 'z'; ++c)
-	{
+	for (int c = 'a'; c <= 'z'; ++c) {
 		int left = 0, right = len - 1;
 		while (left < right && s[left] != c) ++left;
 		while (left < right && s[right] != c) --right;
 		memset(have, 0, sizeof(have));
 		for (int i = left + 1; i < right; ++i)
-			have[s[i]] = 1;
+			have[(int)s[i]] = 1;
 		for (int i = 'a'; i <= 'z'; ++i)
 			ans += have[i];
 	}

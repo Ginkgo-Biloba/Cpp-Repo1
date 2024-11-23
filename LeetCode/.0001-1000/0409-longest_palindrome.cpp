@@ -27,7 +27,7 @@ int longestPalindrome(string const& str)
 	int hist[128], ans = 0;
 	memset(hist, 0, sizeof(hist));
 	for (int i = 0; i < len; ++i)
-		++(hist[str[i]]);
+		++(hist[(int)str[i]]);
 
 	for (int c = 'a'; c <= 'z'; ++c)
 		ans += hist[c] & ~1;

@@ -31,27 +31,25 @@
 输出：2
 
 提示：
-	s 只包含小写英文字母。
-	1 <= s.length <= 10^5
+  s 只包含小写英文字母。
+  1 <= s.length <= 10^5
 */
 
 int numSplits(string S)
 {
 	int len = static_cast<int>(S.length());
-	int num[128] = { 0 };
+	int num[128] = {0};
 	int ans = 0, cnt = 0;
 	vector<int> M(len);
-	for (int i = 0; i < len; ++i)
-	{
-		if (num[S[i]]++ == 0)
+	for (int i = 0; i < len; ++i) {
+		if (num[(int)S[i]]++ == 0)
 			++cnt;
 		M[i] = cnt;
 	}
 	cnt = 0;
 	memset(num, 0, sizeof(num));
-	for (int i = len - 1; i > 0; --i)
-	{
-		if (num[S[i]]++ == 0)
+	for (int i = len - 1; i > 0; --i) {
+		if (num[(int)S[i]]++ == 0)
 			++cnt;
 		ans += cnt == M[i - 1];
 		if (cnt > M[i - 1])

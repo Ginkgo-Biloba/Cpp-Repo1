@@ -33,31 +33,28 @@
 由于有多个美好子字符串，返回 "dD" ，因为它出现得最早。
 
 提示：
-	1 <= s.length <= 100
-	s 只包含大写和小写英文字母。
+  1 <= s.length <= 100
+  s 只包含大写和小写英文字母。
 */
 
-class Solution
-{
+class Solution {
 	int iloveyou(string const& s, int d)
 	{
 		int len = static_cast<int>(s.size());
-		int A[128] = { 0 }, good;
+		int A[128] = {0}, good;
 		for (int i = 0; i < d - 1; ++i)
-			A[s[i]] += 1;
-		for (int i = d - 1; i < len;)
-		{
-			A[s[i++]] += 1;
+			A[(int)s[i]] += 1;
+		for (int i = d - 1; i < len;) {
+			A[(int)s[i++]] += 1;
 			good = 1;
 			for (int k = 'a'; k <= 'z'; ++k)
-				if ((!A[k]) != (!A[k + 'A' - 'a']))
-				{
+				if ((!A[k]) != (!A[k + 'A' - 'a'])) {
 					good = 0;
 					break;
 				}
 			if (good)
 				return i - d;
-			A[s[i - d]] -= 1;
+			A[(int)s[i - d]] -= 1;
 		}
 		return -1;
 	}
@@ -66,8 +63,7 @@ public:
 	string longestNiceSubstring(string s)
 	{
 		int len = static_cast<int>(s.size());
-		for (int d = len; d > 0; --d)
-		{
+		for (int d = len; d > 0; --d) {
 			int i = iloveyou(s, d);
 			if (i >= 0)
 				return s.substr(i, d);
@@ -75,7 +71,6 @@ public:
 		return string();
 	}
 };
-
 
 int main()
 {

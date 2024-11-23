@@ -29,46 +29,27 @@
 	s 仅包含小写英文字母
 */
 
-
-class Solution
-{
+class Solution {
 	int idxmap[16 * 16];
 	char has[16 * 16];
 	string s;
 	int len, ans;
 
-	unsigned popcnt(unsigned n)
-	{
-#if defined _MSC_VER
-		return __popcnt(n);
-#elif defined __GNUC__
-		return __builtin_popcount(n);
-#else
-		n = n - ((n >> 1) & 0x55555555);
-		n = (n & 0x33333333) + ((n >> 2) & 0x33333333);
-		n = (n + (n >> 4)) & 0x0f0f0f0f;
-		n = (n * 0x1010101) >> 24;
-		return n;
-#endif
-	}
-
 	void check(int bit)
 	{
 		// just a pre-check, can be deleted
-		if (popcnt(bit) <= static_cast<unsigned>(ans))
+		if (popcount(bit) <= ans)
 			return;
 		memset(has, 0, sizeof(has));
 		int word = 0;
 		int pre = 0;
 		for (int i = 1; i <= len; ++i)
-			if ((i == len) || ((1 << (i - 1)) & bit))
-			{
+			if ((i == len) || ((1 << (i - 1)) & bit)) {
 				int f = pre * 16 + i - 1;
 				int m = idxmap[f];
 				if (has[m])
 					return;
-				else
-				{
+				else {
 					++word;
 					pre = i;
 					has[m] = 1;
@@ -86,19 +67,16 @@ public:
 
 		map<string, int> M[16];
 		int bit = 0;
-		for (int i = 0; i < len; ++i)
-		{
+		for (int i = 0; i < len; ++i) {
 			t.clear();
-			for (int k = i; k < len; ++k)
-			{
+			for (int k = i; k < len; ++k) {
 				int n = k - i;
 				int f = i * 16 + k;
 				t.push_back(s[k]);
 				auto it = M[n].find(t);
 				if (it != M[n].end())
 					idxmap[f] = it->second;
-				else
-				{
+				else {
 					M[n][t] = bit;
 					idxmap[f] = bit;
 					++bit;
@@ -112,7 +90,6 @@ public:
 		return ans;
 	}
 };
-
 
 int main()
 {

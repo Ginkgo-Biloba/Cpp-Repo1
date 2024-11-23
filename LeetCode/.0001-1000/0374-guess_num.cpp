@@ -18,13 +18,12 @@
 输出: 6
 */
 
-extern int guess(int num);
+int guess(int num) { return num; }
 
 int guessNumber(int n)
 {
 	unsigned a = 1, b = n, m;
-	while (a < b)
-	{
+	while (a < b) {
 		m = (a + b) / 2;
 		n = guess(m);
 		if (n == 0)

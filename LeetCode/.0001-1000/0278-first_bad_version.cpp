@@ -23,13 +23,12 @@
 所以，4 是第一个错误的版本。
 */
 
-extern bool isBadVersion(int version);
+bool isBadVersion(int version) { return !version; }
 
 int firstBadVersion(int n)
 {
 	int a = 1, b;
-	while (a < n)
-	{
+	while (a < n) {
 		b = a + (n - a) / 2;
 		if (isBadVersion(b))
 			n = b;

@@ -51,22 +51,19 @@ int maxCompatibilitySum(vector<vector<int>>& students, vector<vector<int>>& ment
 	int m = static_cast<int>(students.size());
 	int n = static_cast<int>(students[0].size());
 	vector<int> S, M, P;
-	for (int i = 0; i < m; ++i)
-	{
+	for (int i = 0; i < m; ++i) {
 		S.push_back(getbit(students[i]));
 		M.push_back(getbit(mentors[i]));
 		P.push_back(i);
 	}
 	int dif = n * m;
-	do
-	{
+	do {
 		int cur = 0;
 		for (int i = 0; i < m; ++i)
-			cur += __builtin_popcount(S[i] ^ M[P[i]]);
+			cur += popcount(S[i] ^ M[P[i]]);
 		dif = min(dif, cur);
 	} while (next_permutation(P.begin(), P.end()));
 	return n * m - dif;
 }
-
 
 int main() { }

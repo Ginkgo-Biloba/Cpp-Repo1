@@ -33,9 +33,9 @@ a 中有 1 个元音，b 中有 2 个元音。
 输出：true
 
 提示：
-	2 <= s.length <= 1000
-	s.length 是偶数
-	s 由 大写和小写 字母组成
+  2 <= s.length <= 1000
+  s.length 是偶数
+  s 由 大写和小写 字母组成
 */
 
 bool halvesAreAlike(string s)
@@ -44,16 +44,15 @@ bool halvesAreAlike(string s)
 	int tab[128], a = 0, b = 0;
 	int len = static_cast<int>(s.size()) / 2;
 	memset(tab, 0, sizeof(tab));
-	for (char c : v)
+	for (int c : v)
 		tab[c] = 1;
-	for (int i = 0; i < len; ++i)
-	{
-		a += tab[s[i]];
-		b += tab[s[i + len]];
+	for (int i = 0; i < len; ++i) {
+		a += tab[(int)s[i]];
+		b += tab[(int)s[i + len]];
 	}
 	return a == b;
 }
 
-
 int main()
-{}
+{
+}

@@ -27,8 +27,7 @@ vector<string> readBinaryWatch(int num)
 
 	for (int h = 0; h < 12; ++h)
 		for (int m = 0; m < 60; ++m)
-			if (__builtin_popcount((h << 6) | m) == num)
-			{
+			if (popcount((h << 6) | m) == num) {
 				snprintf(str, sizeof(str), "%d:%02d", h, m);
 				times.push_back(string(str));
 			}

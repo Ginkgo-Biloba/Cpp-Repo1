@@ -23,21 +23,20 @@
 解释：无法输入任何单词，因为字母键 'e' 已损坏。
 
 提示：
-	1 <= text.length <= 10^4
-	0 <= brokenLetters.length <= 26
-	text 由若干用单个空格分隔的单词组成，且不含任何前导和尾随空格
-	每个单词仅由小写英文字母组成
-	brokenLetters 由 互不相同 的小写英文字母组成
+  1 <= text.length <= 10^4
+  0 <= brokenLetters.length <= 26
+  text 由若干用单个空格分隔的单词组成，且不含任何前导和尾随空格
+  每个单词仅由小写英文字母组成
+  brokenLetters 由 互不相同 的小写英文字母组成
 */
 
-class Solution
-{
-	char bad[128];
+class Solution {
+	int bad[128];
 
 	int cantype(string const& text, int pre, int cur)
 	{
 		for (; pre < cur; ++pre)
-			if (bad[text[pre]])
+			if (bad[(int)text[pre]])
 				return 0;
 		return 1;
 	}
@@ -51,8 +50,7 @@ public:
 
 		int ans = 0, pre = 0, cur = 1;
 		int len = static_cast<int>(text.size());
-		for (; cur <= len; ++cur)
-		{
+		for (; cur <= len; ++cur) {
 			if (cur < len && text[cur] != ' ')
 				continue;
 			ans += cantype(text, pre, cur);
@@ -61,6 +59,5 @@ public:
 		return ans;
 	}
 };
-
 
 int main() { }

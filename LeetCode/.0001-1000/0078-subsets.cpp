@@ -30,22 +30,19 @@ vector<vector<int>> subsets(vector<int>& A)
 	vector<int> r;
 	for (int i = 0; i <= len; ++i)
 		mask[i] = 1 << i;
-	for (int i = 0; i < mask[len]; ++i)
-	{
-		r.reserve(__builtin_popcount(i));
-		for (int b = 0; b < len; ++b)
-		{
+	for (int i = 0; i < mask[len]; ++i) {
+		r.reserve(popcount(i));
+		for (int b = 0; b < len; ++b) {
 			if (i & mask[b])
 				r.push_back(A[b]);
 		}
-		R.push_back(move(r));
+		R.push_back(std::move(r));
 	}
 	return R;
 }
 
-
 int main()
 {
-	vector<int> a = { 1, 2, 3 };
+	vector<int> a = {1, 2, 3};
 	ToOut(subsets(a));
 }

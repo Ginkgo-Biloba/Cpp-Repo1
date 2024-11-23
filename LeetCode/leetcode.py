@@ -1,21 +1,16 @@
-﻿import ctypes
+﻿from __future__ import annotations
+
+import collections
+import ctypes
+import itertools
 import math
 import os
 import random
 import sys
 import time
-from datetime import datetime, date, timedelta
+from datetime import datetime, timedelta
 from os import path
-
-import numpy as np
-import matplotlib
-from matplotlib import pyplot as plt
-from PIL import Image
-import av
-
-from typing import List
-import collections
-import itertools
+from typing import List, Tuple, Dict
 
 
 class Solution:
@@ -45,4 +40,3 @@ print(s.minAreaFreeRect(a))
 print(s.minAreaFreeRect(b))
 print(s.minAreaFreeRect(c))
 print(s.minAreaFreeRect(d))
-

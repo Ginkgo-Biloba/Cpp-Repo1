@@ -23,25 +23,23 @@
 解释：字符串 "cc"，"acd"，"ac" 和 "d" 是一致字符串。
 
 提示：
-	1 <= words.length <= 10^4
-	1 <= allowed.length <= 26
-	1 <= words[i].length <= 10
-	allowed 中的字符 互不相同 。
-	words[i] 和 allowed 只包含小写英文字母。
+  1 <= words.length <= 10^4
+  1 <= allowed.length <= 26
+  1 <= words[i].length <= 10
+  allowed 中的字符 互不相同 。
+  words[i] 和 allowed 只包含小写英文字母。
 */
 
 int countConsistentStrings(string allowed, vector<string>& words)
 {
 	int ans = 0;
-	char have[128] = { 0 };
-	for (char c : allowed)
+	char have[128] = {0};
+	for (int c : allowed)
 		have[c] = 1;
-	for (string& s : words)
-	{
+	for (string& s : words) {
 		++ans;
-		for (char c : s)
-			if (!(have[c]))
-			{
+		for (int c : s)
+			if (!(have[c])) {
 				--ans;
 				break;
 			}
@@ -49,6 +47,6 @@ int countConsistentStrings(string allowed, vector<string>& words)
 	return ans;
 }
 
-
 int main()
-{}
+{
+}

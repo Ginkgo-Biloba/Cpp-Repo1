@@ -36,8 +36,8 @@
 解释：所有包含全部五种元音的子字符串都含有辅音，所以不存在元音子字符串。
 
 提示：
-	1 <= word.length <= 100
-	word 仅由小写英文字母组成
+  1 <= word.length <= 100
+  word 仅由小写英文字母组成
 */
 
 // https://leetcode.com/problems/count-vowel-substrings-of-a-string/solutions/1563737/sliding-window/
@@ -46,21 +46,16 @@ int countVowelSubstrings(string word)
 {
 	int len = static_cast<int>(word.size());
 	int vowel = 0, count = 0, have[128] = {0};
-	for (int j = 0, k = 0, i = 0; i < len; ++i)
-	{
-		if (strchr("aeiou", word[i]))
-		{
-			have[word[i]] += 1;
-			vowel += (have[word[i]] == 1);
-			for (; vowel == 5; ++k)
-			{
-				have[word[k]] -= 1;
-				vowel -= (have[word[k]] == 0);
+	for (int j = 0, k = 0, i = 0; i < len; ++i) {
+		if (strchr("aeiou", word[i])) {
+			have[(int)word[i]] += 1;
+			vowel += (have[(int)word[i]] == 1);
+			for (; vowel == 5; ++k) {
+				have[(int)word[k]] -= 1;
+				vowel -= (have[(int)word[k]] == 0);
 			}
 			count += k - j;
-		}
-		else
-		{
+		} else {
 			memset(have, 0, sizeof(have));
 			vowel = 0;
 			j = k = i + 1;
@@ -69,7 +64,8 @@ int countVowelSubstrings(string word)
 	return count;
 }
 
-int main() {
+int main()
+{
 	ToOut(countVowelSubstrings("aeiouu"));
 	ToOut(countVowelSubstrings("unicornarihan"));
 	ToOut(countVowelSubstrings("cuaieuouac"));
