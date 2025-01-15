@@ -31,20 +31,6 @@
 	每个节点的值在 [-10^5, 10^5] 之间。
 */
 
-
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
 // https://leetcode.com/problems/all-elements-in-two-binary-search-trees/discuss/464073/C%2B%2B-One-Pass-Traversal
 // 抄的
 class Solution

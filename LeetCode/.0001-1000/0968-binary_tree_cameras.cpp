@@ -25,14 +25,6 @@ https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/29/bst_cameras_0
 	每个节点的值都是 0。
 */
 
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-};
-
 // 抄的
 class Solution
 {

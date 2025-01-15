@@ -29,20 +29,6 @@ https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/08/04/1480-binary-t
 	1 <= x <= n <= 100
 */
 
-
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
 // https://leetcode.com/problems/binary-tree-coloring-game/discuss/350570/JavaC%2B%2BPython-Simple-recursion-and-Follow-Up
 // 抄的
 class Solution

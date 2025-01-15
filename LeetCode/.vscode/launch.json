@@ -16,6 +16,7 @@
 			"internalConsoleOptions": "openOnSessionStart",
 			"MIMode": "gdb",
 			"miDebuggerPath": "${env:mingw}\\bin\\gdb64.exe",
+			// "miDebuggerPath": "${env:mingw}\\gdb64\\bin\\gdb.exe",
 			"miDebuggerArgs": "--silent",
 			"setupCommands": [
 				{

@@ -43,19 +43,6 @@ distance = 3
 	1 <= distance <= 10
 */
 
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
 class Solution
 {
 	// A[n][i], num of leaves with distance `i' to node `n'

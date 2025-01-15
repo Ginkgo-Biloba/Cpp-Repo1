@@ -26,18 +26,6 @@
 	树中每个节点的值都在 1 到 1000 之间。
 */
 
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
 // https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/discuss/334577/JavaC%2B%2BPython-Two-Recursive-Solution
 // 抄的
 class Solution

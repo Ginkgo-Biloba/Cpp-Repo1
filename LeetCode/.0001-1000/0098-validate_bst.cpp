@@ -29,20 +29,6 @@
 根节点的值为 5 ，但是其右子节点值为 4 。
 */
 
-
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
 // https://leetcode.com/problems/validate-binary-search-tree/discuss/32112/Learn-one-iterative-inorder-traversal-apply-it-to-multiple-tree-questions-(Java-Solution)
 // 抄的
 bool isValidBST(TreeNode* root)

@@ -56,11 +56,21 @@ std::ostream& operator<<(std::ostream& os, vector<T> const& A)
 #define ToOut(x) \
 	std::cout << std::boolalpha << #x " = " << x << std::endl
 
-int popcount(unsigned n)
-{
-	n = n - ((n >> 1) & 0x55555555u);
-	n = (n & 0x33333333u) + ((n >> 2) & 0x33333333u);
-	n = (n + (n >> 4)) & 0x0f0f0f0fu;
-	n = (n * 0x1010101u) >> 24;
-	return static_cast<int>(n);
-}
+// Definition for a binary tree node.
+struct TreeNode {
+	int val;
+	TreeNode* left;
+	TreeNode* right;
+	TreeNode()
+		: val(0), left(nullptr), right(nullptr) { }
+	TreeNode(int x)
+		: val(x), left(nullptr), right(nullptr) { }
+	TreeNode(int x, TreeNode* l, TreeNode* r)
+		: val(x), left(l), right(r) { }
+};
+
+// Definition for singly-linked list.
+struct ListNode {
+	int val;
+	ListNode* next;
+};

@@ -18,20 +18,6 @@
 进阶: 递归算法很简单，你可以通过迭代算法完成吗？
 */
 
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
-
 vector<int> inorderTraversal_Org(TreeNode* root)
 {
 	vector<pair<int, TreeNode*>> S;

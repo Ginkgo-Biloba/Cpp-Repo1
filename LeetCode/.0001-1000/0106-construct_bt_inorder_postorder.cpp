@@ -20,23 +20,9 @@
 >   15   7
 */
 
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
 // https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/discuss/34911/My-C%2B%2B-Solution
 // 抄的
-class Solution
-{
+class Solution {
 	vector<int> in, post;
 
 	TreeNode* helper(int i, int k, int p, int r)
@@ -52,8 +38,7 @@ class Solution
 		// postorder [3 6 4]   [9 11 10] 8
 		int mid = post[r - 1];
 		int ofs = i;
-		for (; ofs < k; ++ofs)
-		{
+		for (; ofs < k; ++ofs) {
 			if (in[ofs] == mid)
 				break;
 		}
@@ -74,6 +59,6 @@ public:
 	}
 };
 
-
 int main()
-{}
+{
+}

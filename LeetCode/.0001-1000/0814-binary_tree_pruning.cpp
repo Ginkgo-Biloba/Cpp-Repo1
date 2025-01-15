@@ -29,16 +29,6 @@ https://s3-lc-upload.s3.amazonaws.com/uploads/2018/04/05/1028.png
 	每个节点的值只会为 0 或 1 。
 */
 
-
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode *left;
-	TreeNode *right;
-	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-};
-
 // https://leetcode.com/problems/binary-tree-pruning/discuss/122730/C%2B%2BJavaPython-Self-Explaining-Solution-and-2-lines
 TreeNode* pruneTree(TreeNode* root)
 {

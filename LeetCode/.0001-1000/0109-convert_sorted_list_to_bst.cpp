@@ -19,27 +19,6 @@
 > -10  5
 */
 
-// Definition for singly-linked list.
-struct ListNode
-{
-	int val;
-	ListNode* next;
-};
-
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{
-	}
-};
-
 // https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/discuss/35483/My-Accepted-C%2B%2B-solution
 // 抄的
 class Solution

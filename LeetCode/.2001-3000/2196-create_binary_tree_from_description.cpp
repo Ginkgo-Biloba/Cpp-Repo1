@@ -32,12 +32,6 @@ https://assets.leetcode.com/uploads/2022/02/09/example2drawio.png
   descriptions 所描述的二叉树是一棵有效二叉树
 */
 
-struct TreeNode {
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-};
-
 TreeNode* createBinaryTree(vector<vector<int>>& descriptions)
 {
 	vector<pair<int, TreeNode*>> lut(100002);

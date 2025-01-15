@@ -25,40 +25,14 @@ https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/29/sample_2_1720
 解释：二叉树中不存在一一对应链表的路径。
 
 提示：
-	二叉树和链表中的每个节点的值都满足 1 <= node.val <= 100 。
-	链表包含的节点数目在 1 到 100 之间。
-	二叉树包含的节点数目在 1 到 2500 之间。
+  二叉树和链表中的每个节点的值都满足 1 <= node.val <= 100 。
+  链表包含的节点数目在 1 到 100 之间。
+  二叉树包含的节点数目在 1 到 2500 之间。
 */
-
-
-//Definition for singly-linked list.
-struct ListNode
-{
-	int val;
-	ListNode* next;
-	ListNode(int x)
-		: val(x)
-		, next(NULL)
-	{}
-};
-
-//Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
 
 // https://leetcode.com/problems/linked-list-in-binary-tree/discuss/524881/Python-Recursive-Solution-O(N)-Time
 // 抄的
-class Solution
-{
+class Solution {
 	bool dfs(ListNode* head, TreeNode* root);
 
 public:
@@ -81,6 +55,6 @@ bool Solution::dfs(ListNode* head, TreeNode* root)
 	return dfs(head->next, root->left) || dfs(head->next, root->right);
 }
 
-
 int main()
-{}
+{
+}

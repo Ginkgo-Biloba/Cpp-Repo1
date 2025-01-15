@@ -26,25 +26,9 @@
 >   15   7
 
 输出: 42
-
-
 */
 
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
-class Solution
-{
+class Solution {
 	int ans;
 
 	int post(TreeNode* node)
@@ -73,6 +57,6 @@ public:
 	}
 };
 
-
 int main()
-{}
+{
+}

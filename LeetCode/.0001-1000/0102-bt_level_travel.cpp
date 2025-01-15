@@ -16,24 +16,11 @@
 
 返回其层次遍历结果：
 [
-	[3],
-	[9,20],
-	[15,7]
+  [3],
+  [9,20],
+  [15,7]
 ]
 */
-
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
 
 vector<vector<int>> levelOrder(TreeNode* root)
 {
@@ -42,13 +29,11 @@ vector<vector<int>> levelOrder(TreeNode* root)
 		return R;
 	vector<TreeNode*> A, B;
 	A.push_back(root);
-	while (!A.empty())
-	{
+	while (!A.empty()) {
 		B.clear();
 		vector<int> r;
 		r.reserve(A.size());
-		for (auto t : A)
-		{
+		for (auto t : A) {
 			r.push_back(t->val);
 			if (t->left)
 				B.push_back(t->left);
@@ -56,11 +41,11 @@ vector<vector<int>> levelOrder(TreeNode* root)
 				B.push_back(t->right);
 		}
 		B.swap(A);
-		R.push_back(move(r));
+		R.push_back(std::move(r));
 	}
 	return R;
 }
 
-
 int main()
-{}
+{
+}

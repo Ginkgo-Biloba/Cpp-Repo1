@@ -39,15 +39,14 @@ https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/11/08/jj.gif
 解释：卖 1000000000 次第一种颜色的球，总价值为 500000000500000000 。 500000000500000000 对 10^9 + 7 取余为 21 。
 
 提示：
-	1 <= inventory.length <= 10^5
-	1 <= inventory[i] <= 10^9
-	1 <= orders <= min(sum(inventory[i]), 10^9)
+  1 <= inventory.length <= 10^5
+  1 <= inventory[i] <= 10^9
+  1 <= orders <= min(sum(inventory[i]), 10^9)
 */
 
-static int64_t const mod = 1e9 + 7;
+static int64_t const mod = static_cast<int64_t>(1e9 + 7);
 
-class Solution
-{
+class Solution {
 	int64_t get(int64_t order, int64_t a, int64_t k)
 	{
 		int64_t d = order / k;
@@ -63,8 +62,7 @@ public:
 		int64_t sum = 0;
 		int len = static_cast<int>(A.size());
 		sort(A.begin(), A.end());
-		for (int i = len - 1; i > 0 && orders > 0; --i)
-		{
+		for (int i = len - 1; i > 0 && orders > 0; --i) {
 			int dif = A[i] - A[i - 1];
 			int num = orders;
 			if (orders / (len - i) >= dif)
@@ -78,14 +76,13 @@ public:
 	}
 };
 
-
 int main()
 {
 	vector<int>
-		a = { 2, 5 },
-		b = { 3, 5 },
-		c = { 2, 8, 4, 10, 6 },
-		d = { 1000000000 };
+		a = {2, 5},
+		b = {3, 5},
+		c = {2, 8, 4, 10, 6},
+		d = {1000000000};
 	Solution s;
 	ToOut(s.maxProfit(a, 4));
 	ToOut(s.maxProfit(b, 6));

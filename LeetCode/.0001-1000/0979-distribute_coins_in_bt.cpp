@@ -32,27 +32,13 @@ https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/01/19/tree3.png
 https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/01/19/tree4.png
 
 提示：
-	1<= N <= 100
-	0 <= node.val <= N
+  1<= N <= 100
+  0 <= node.val <= N
 */
-
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
 
 // https://leetcode.com/problems/distribute-coins-in-binary-tree/discuss/221930/JavaC%2B%2BPython-Recursive-Solution
 // 抄的
-class Solution
-{
+class Solution {
 	int sum;
 
 	// 返回的是调整子节点之后，这个节点的硬币数量
@@ -75,6 +61,6 @@ public:
 	}
 };
 
-
 int main()
-{}
+{
+}

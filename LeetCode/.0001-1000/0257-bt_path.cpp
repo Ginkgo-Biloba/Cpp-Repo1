@@ -20,21 +20,7 @@
 解释: 所有根节点到叶子节点的路径为: 1->2->5, 1->3
 */
 
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
-class Solution
-{
+class Solution {
 	char buffer[32];
 	vector<int> cur;
 	vector<string> ans;
@@ -42,20 +28,16 @@ class Solution
 	void dfs(TreeNode* node)
 	{
 		cur.push_back(node->val);
-		if (!(node->left || node->right))
-		{
+		if (!(node->left || node->right)) {
 			string s;
-			for (int a : cur)
-			{
+			for (int a : cur) {
 				sprintf(buffer, "%d->", a);
 				s.append(buffer);
 			}
 			s.pop_back();
 			s.pop_back();
-			ans.push_back(move(s));
-		}
-		else
-		{
+			ans.push_back(std::move(s));
+		} else {
 			if (node->left)
 				dfs(node->left);
 			if (node->right)
@@ -69,10 +51,10 @@ public:
 	{
 		if (root)
 			dfs(root);
-		return move(ans);
+		return std::move(ans);
 	}
 };
 
-
 int main()
-{}
+{
+}

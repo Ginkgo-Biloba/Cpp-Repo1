@@ -30,19 +30,6 @@ https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/02/tree3.png
 	树中的每个结点都有一个介于 0 和 25 之间的值。
 */
 
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
 class Solution
 {
 	string ans, cur;

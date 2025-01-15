@@ -35,19 +35,6 @@ https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/23/palindromic_p
 	节点值在 1 到 9 之间。
 */
 
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
 class Solution1
 {
 	int freq[11]; // freq[10] -> ans

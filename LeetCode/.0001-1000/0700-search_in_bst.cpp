@@ -25,16 +25,6 @@
 在上述示例中，如果要找的值是 5，但因为没有节点值为 5，我们应该返回 NULL。
 */
 
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x), left(NULL), right(NULL)
-	{}
-};
-
 TreeNode* searchBST(TreeNode* root, int val)
 {
 	if (root)

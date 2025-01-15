@@ -6,15 +6,15 @@
 trees 中的每棵二叉搜索树 最多有 3 个节点 ，且不存在值相同的两个根节点。
 在一步操作中，将会完成下述步骤：
 
-	选择两个 不同的 下标 i 和 j ，要求满足在 trees[i] 中的某个 叶节点 的值等于 trees[j] 的 根节点的值 。
-	用 trees[j] 替换 trees[i] 中的那个叶节点。
-	从 trees 中移除 trees[j] 。
+  选择两个 不同的 下标 i 和 j ，要求满足在 trees[i] 中的某个 叶节点 的值等于 trees[j] 的 根节点的值 。
+  用 trees[j] 替换 trees[i] 中的那个叶节点。
+  从 trees 中移除 trees[j] 。
 
 如果在执行 n - 1 次操作后，能形成一棵有效的二叉搜索树，则返回结果二叉树的 根节点；如果无法构造一棵有效的二叉搜索树，返回 null 。
 
 二叉搜索树是一种二叉树，且树中每个节点均满足下述属性：
-	任意节点的左子树中的值都 严格小于 此节点的值。
-	任意节点的右子树中的值都 严格大于 此节点的值。
+  任意节点的左子树中的值都 严格小于 此节点的值。
+  任意节点的右子树中的值都 严格大于 此节点的值。
 
 叶节点是不含子节点的节点。
 
@@ -48,31 +48,22 @@ https://assets.leetcode.com/uploads/2021/06/08/d3.png
 解释：无法执行任何操作。
 
 提示：
-	n == trees.length
-	1 <= n <= 5 * 10^4
-	每棵树中节点数目在范围 [1, 3] 内。
-	输入数据的每个节点可能有子节点但不存在子节点的子节点
-	trees 中不存在两棵树根节点值相同的情况。
-	输入中的所有树都是 有效的二叉树搜索树 。
-	1 <= TreeNode.val <= 5 * 10^4.
+  n == trees.length
+  1 <= n <= 5 * 10^4
+  每棵树中节点数目在范围 [1, 3] 内。
+  输入数据的每个节点可能有子节点但不存在子节点的子节点
+  trees 中不存在两棵树根节点值相同的情况。
+  输入中的所有树都是 有效的二叉树搜索树 。
+  1 <= TreeNode.val <= 5 * 10^4.
 */
-
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-};
 
 // https://leetcode-cn.com/problems/merge-bsts-to-create-single-bst/solution/he-bing-duo-ke-er-cha-sou-suo-shu-by-lee-m42t/
 // 抄的
-class Solution
-{
-	static int const limit = 5e4 + 1;
+class Solution {
+	static int const limit = static_cast<int>(5e4 + 1);
 	// prev: 中序遍历上一个值，用于检查单调性
 	int prev, rest;
-	vector<char> leaf;			// 有没有这个叶子节点
+	vector<char> leaf;      // 有没有这个叶子节点
 	vector<TreeNode*> cand; // 根节点的值，根
 
 	// 中序遍历
@@ -82,8 +73,7 @@ class Solution
 			return true;
 
 		// 如果到叶子节点，并且存在可以合并的树，那么就合并
-		if (!t->left && !t->right && cand[t->val])
-		{
+		if (!t->left && !t->right && cand[t->val]) {
 			t->left = cand[t->val]->left;
 			t->right = cand[t->val]->right;
 			rest -= 1;
@@ -106,8 +96,7 @@ public:
 		leaf.assign(limit, 0);
 		cand.assign(limit, nullptr);
 
-		for (auto t : trees)
-		{
+		for (auto t : trees) {
 			if (t->left)
 				leaf[t->left->val] = 1;
 			if (t->right)
@@ -117,8 +106,7 @@ public:
 		}
 
 		for (auto t : trees)
-			if (!leaf[t->val])
-			{
+			if (!leaf[t->val]) {
 				rest -= 1;
 				cand[t->val] = nullptr;
 				bool fin = travel(t) && (rest == 0);
@@ -127,6 +115,5 @@ public:
 		return nullptr;
 	}
 };
-
 
 int main() { }

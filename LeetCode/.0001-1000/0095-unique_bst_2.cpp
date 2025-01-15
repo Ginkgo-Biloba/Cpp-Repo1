@@ -25,20 +25,6 @@
 >   2     1         2                 3
 */
 
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
-
 // https://leetcode.com/problems/unique-binary-search-trees-ii/discuss/31563/My-Accepted-C%2B%2B-solution-(recursive-less-than-30-lines)
 // 抄的
 class Solution

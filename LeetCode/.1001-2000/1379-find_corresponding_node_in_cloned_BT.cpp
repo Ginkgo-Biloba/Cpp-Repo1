@@ -46,19 +46,6 @@ https://assets.leetcode.com/uploads/2020/02/21/e5.png
 	target 节点是树 original 中的一个节点，并且不会是 null 。
 */
 
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
 class Solution
 {
 	TreeNode* T;

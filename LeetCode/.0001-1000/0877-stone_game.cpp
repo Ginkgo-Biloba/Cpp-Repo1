@@ -23,10 +23,10 @@
 这表明，取前 5 颗石子对亚历克斯来说是一个胜利的举动，所以我们返回 true 。
 
 提示：
-	2 <= piles.length <= 500
-	piles.length 是偶数。
-	1 <= piles[i] <= 500
-	sum(piles) 是奇数。
+  2 <= piles.length <= 500
+  piles.length 是偶数。
+  1 <= piles[i] <= 500
+  sum(piles) 是奇数。
 */
 
 bool stoneGame(vector<int>& piles)
@@ -35,24 +35,21 @@ bool stoneGame(vector<int>& piles)
 	int n = (int)(piles.size());
 	vector<int> dp(n * n);
 	auto at = [n](int y, int x) { return y * n + x; };
-
 	for (int i = 0; i < n; ++i)
 		dp[at(i, i)] = piles[i];
 	for (int d = 1; d < n; ++d)
-		for (int i = 0; i < n - d; ++i)
-		{
+		for (int i = 0; i < n - d; ++i) {
 			int k = d + i;
 			dp[at(i, k)] = std::max(
 				piles[i] - dp[at(i + 1, k)], // 拿第 i 个
-				piles[k] - dp[at(i, k - 1)] // 拿第 k 个
+				piles[k] - dp[at(i, k - 1)]  // 拿第 k 个
 			);
 		}
 	return dp[at(0, n - 1)] > 0;
 }
 
-
 int main()
 {
-	vector<int> a = { 5, 3, 4, 5 };
+	vector<int> a = {5, 3, 4, 5};
 	ToOut(stoneGame(a));
 }

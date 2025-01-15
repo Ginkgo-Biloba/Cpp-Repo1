@@ -19,13 +19,6 @@ https://assets.leetcode.com/uploads/2021/04/08/leftsum-tree.jpg
 	-1000 <= Node.val <= 1000
 */
 
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-};
-
 class Solution
 {
 public:

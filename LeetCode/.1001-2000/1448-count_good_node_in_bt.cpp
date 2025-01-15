@@ -34,19 +34,6 @@ https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/16/test_sample_2
 	每个节点权值的范围是 [-10^4, 10^4] 。
 */
 
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
 class Solution
 {
 	int ans;

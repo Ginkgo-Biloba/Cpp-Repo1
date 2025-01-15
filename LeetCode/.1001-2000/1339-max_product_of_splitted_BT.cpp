@@ -32,20 +32,6 @@ https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/02/sample_2_1699
 	每个节点的值在 [1, 10000] 之间。
 */
 
-
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
 class Solution
 {
 	int64_t sum, prod;

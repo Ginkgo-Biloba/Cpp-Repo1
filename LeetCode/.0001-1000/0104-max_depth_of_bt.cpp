@@ -20,19 +20,6 @@
 返回它的最大深度 3 。
 */
 
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
 int maxDepth(TreeNode* root)
 {
 	if (!root)
@@ -40,11 +27,9 @@ int maxDepth(TreeNode* root)
 	vector<TreeNode*> A, B;
 	int level = 0;
 	A.push_back(root);
-	for (; !A.empty(); ++level)
-	{
+	for (; !A.empty(); ++level) {
 		B.clear();
-		for (auto t : A)
-		{
+		for (auto t : A) {
 			if (t->left)
 				B.push_back(t->left);
 			if (t->right)
@@ -55,6 +40,6 @@ int maxDepth(TreeNode* root)
 	return level;
 }
 
-
 int main()
-{}
+{
+}

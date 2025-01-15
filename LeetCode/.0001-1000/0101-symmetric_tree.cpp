@@ -22,28 +22,13 @@
 你可以运用递归和迭代两种方法解决这个问题吗？
 */
 
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
-
 bool isSymmetric(TreeNode* root)
 {
 	if (!root)
 		return true;
 	vector<pair<TreeNode*, TreeNode*>> S;
 	S.emplace_back(root->left, root->right);
-	while (!S.empty())
-	{
+	while (!S.empty()) {
 		auto p = S.back();
 		S.pop_back();
 		if (p.first == NULL && p.second == NULL)
@@ -59,4 +44,5 @@ bool isSymmetric(TreeNode* root)
 }
 
 int main()
-{}
+{
+}

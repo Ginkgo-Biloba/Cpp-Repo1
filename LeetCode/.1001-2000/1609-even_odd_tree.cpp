@@ -52,18 +52,6 @@ https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/04/sample_1_333_
 	1 <= Node.val <= 106
 */
 
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x), left(NULL), right(NULL)
-	{}
-};
-
-
 bool isEvenOddTree(TreeNode* root)
 {
 	int level = 0;

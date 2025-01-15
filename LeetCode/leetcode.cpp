@@ -8,19 +8,6 @@ int adds(int a, int b)
 		return (b < INT_MIN - a) ? INT_MIN : (a + b);
 }
 
-// Definition for a binary tree node.
-struct TreeNode {
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-};
-
-// Definition for singly-linked list.
-struct ListNode {
-	int val;
-	ListNode* next;
-};
-
 class SegTree {
 	vector<int> sum;
 	int len;
@@ -57,47 +44,15 @@ public:
 	}
 };
 
-template <typename Tp,
-	size_t fixed_size = (4096 + sizeof(Tp) - 1) / sizeof(Tp)>
-class AutoBuffer {
-	Tp buf[fixed_size];
+int popcount(unsigned n)
+{
+	n = n - ((n >> 1) & 0x55555555u);
+	n = (n & 0x33333333u) + ((n >> 2) & 0x33333333u);
+	n = (n + (n >> 4)) & 0x0f0f0f0fu;
+	n = (n * 0x1010101u) >> 24;
+	return static_cast<int>(n);
+}
 
-public:
-	Tp* ptr;
-	size_t size;
-
-	void allocate(size_t _size)
-	{
-		if (_size <= size)
-			return;
-		deallocate();
-		size = _size;
-		if (_size > fixed_size)
-			ptr = new Tp[_size];
-	}
-	void deallocate()
-	{
-		if (ptr == buf)
-			return;
-		delete[] ptr;
-		ptr = buf;
-		size = fixed_size;
-	}
-	AutoBuffer()
-	{
-		ptr = buf;
-		size = fixed_size;
-	};
-	AutoBuffer(size_t _size)
-	{
-		ptr = buf;
-		size = fixed_size;
-		allocate(_size);
-	}
-	~AutoBuffer()
-	{
-		deallocate();
-	};
-};
-
+// \[([^\[\]]+?)\]
+// {$1}
 int main() { }

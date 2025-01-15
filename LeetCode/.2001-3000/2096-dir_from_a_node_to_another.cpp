@@ -36,13 +36,6 @@ https://assets.leetcode.com/uploads/2021/11/15/eg2.png
 	startValue != destValue
 */
 
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-};
-
 // https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/solutions/1612105/3-steps/
 // 抄的
 class Solution

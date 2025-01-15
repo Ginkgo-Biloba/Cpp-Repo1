@@ -39,29 +39,14 @@
 解释: 小偷一晚能够盗取的最高金额 = 4 + 5 = 9.
 */
 
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
-
 // https://leetcode.com/problems/house-robber-iii/discuss/79330/Step-by-step-tackling-of-the-problem
 // 抄的
-class Solution
-{
+class Solution {
 	typedef array<int, 2> rettype;
 
 	rettype dfs(TreeNode* node)
 	{
-		rettype ret = { 0, 0 };
+		rettype ret = {0, 0};
 		if (!node)
 			return ret;
 		rettype a = dfs(node->left);
@@ -81,6 +66,6 @@ public:
 	}
 };
 
-
 int main()
-{}
+{
+}

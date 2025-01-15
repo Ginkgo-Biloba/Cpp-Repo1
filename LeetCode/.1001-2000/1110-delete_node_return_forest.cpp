@@ -15,30 +15,15 @@ https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/07/05/screen-shot-2
 输出：[[1,2,null,4],[6],[7]]
 
 提示：
-	树中的节点数最大为 1000。
-	每个节点都有一个介于 1 到 1000 之间的值，且各不相同。
-	to_delete.length <= 1000
-	to_delete 包含一些从 1 到 1000、各不相同的值。
+  树中的节点数最大为 1000。
+  每个节点都有一个介于 1 到 1000 之间的值，且各不相同。
+  to_delete.length <= 1000
+  to_delete 包含一些从 1 到 1000、各不相同的值。
 */
-
-
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
 
 // https://leetcode.com/problems/delete-nodes-and-return-forest/discuss/328853/JavaC%2B%2BPython-Recursion-Solution
 // 抄的
-class Solution
-{
+class Solution {
 	vector<TreeNode*> ans;
 	unordered_set<int> todel;
 
@@ -66,6 +51,6 @@ public:
 	}
 };
 
-
 int main()
-{}
+{
+}

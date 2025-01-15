@@ -15,19 +15,6 @@
 >   5     4       <---
 */
 
-// Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x)
-		: val(x)
-		, left(NULL)
-		, right(NULL)
-	{}
-};
-
 vector<int> rightSideView(TreeNode* root)
 {
 	vector<int> R;
