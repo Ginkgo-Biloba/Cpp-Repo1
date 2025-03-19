@@ -1,0 +1,63 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "cbuild",
+			"type": "shell",
+			"windows": {
+				"command": "clang++.exe -masm=intel -mavx2 -O0 -g -Wall -Wextra -pedantic -Werror -Wcast-align -Wconversion -Wpointer-arith -Wshadow -Wreturn-type -Wno-sign-conversion -fsanitize=undefined -fsanitize=address -o main.exe ${relativeFile}"
+			},
+			"linux": {
+				"command": "g++ -masm=intel -mavx2 -O0 -g -Wall -Wextra -pedantic -Werror -Wcast-align -Wconversion -Wpointer-arith -Wshadow -Wreturn-type -Wno-sign-conversion -fsanitize=undefined -fsanitize=address -o main.exe ${relativeFile}"
+			},
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "silent",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": true
+			},
+			"problemMatcher": "$gcc"
+		},
+		{
+			"type": "shell",
+			"label": "msvc",
+			"command": ".vscode\\clenv.ps1; cl.exe /nologo /arch:AVX2 /EHsc /W4 /Zi /MDd /fsanitize=address /Fd:main.pdb /Fe:main.exe /Fo:main.obj ${relativeFile}",
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"presentation": {
+				"echo": true,
+				"reveal": "silent",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": true
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "dotnet",
+			"command": "dotnet",
+			"type": "shell",
+			"args": [
+				"build",
+				"leetcode.csproj",
+				"/property:GenerateFullPaths=true",
+				"/consoleloggerparameters:NoSummary"
+			],
+			"group": "build",
+			"presentation": {
+				"reveal": "silent",
+				"clear": true
+			}
+		}
+	]
+}
