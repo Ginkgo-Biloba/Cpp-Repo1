@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ImportGroup Label="PropertySheets" />
+	<PropertyGroup Label="UserMacros" />
+	<PropertyGroup>
+		<glfwdir>C:\appdata\3rdparty</glfwdir>
+		<IncludePath>$(glfwdir)\include;$(IncludePath)</IncludePath>
+		<LibraryPath>$(glfwdir)\$(PlatformTarget)-lib;$(LibraryPath)</LibraryPath>
+	</PropertyGroup>
+	<ItemDefinitionGroup>
+		<Link Condition="'$(Configuration)'=='Debug'">
+			<AdditionalDependencies>glfw3d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+		</Link>
+		<Link Condition="'$(Configuration)'=='Release'">
+			<AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemGroup />
+</Project>
